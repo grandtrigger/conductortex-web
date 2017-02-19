@@ -1,3 +1,40 @@
-<div flex md-swipe-right = "vm.goToMain()">
-    <p>lista de eventos</p>
+<div flex md-swipe-right = "vm.goToMain()" layout-padding>
+    <div layout = "column">
+        <label>Seus eventos</label>
+    </div>
+
+    <md-divider></md-divider>
+
+    <!-- Lista de Eventos -->
+    <div layout = "column">
+        <md-subheader class="md-no-sticky">Últimos eventos</md-subheader>
+
+        <md-list class="md-dense" flex>
+            <md-list-item class = "md-3-line" ng-repeat="evento in vm.eventsList">
+                <md-icon>
+                    <i class="material-icons">today</i>
+                </md-icon>
+
+                <div class="md-list-item-text" layout="column">
+                    <h3>agua</h3>
+                    <h4>cara</h4>
+                    <p>{{evento.titulo}}</p>
+                </div>
+
+                <!-- Botão de Cancelar -->
+                <md-button class="md-icon-button" aria-label="Recusar">
+                    <md-icon>
+                        <i class="material-icons">clear</i>
+                    </md-icon>
+                </md-button>
+
+                <!-- Botão de Confirmação -->
+                <md-button class="md-icon-button" aria-label="Confirmar">
+                    <md-icon>
+                        <i class="material-icons">done</i>
+                    </md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </div>
 </div>

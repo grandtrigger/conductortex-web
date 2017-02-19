@@ -12,11 +12,10 @@ function eventoController($state, AuthService) {
 
     /// Public Variables
     vm.newUser = {};
+    vm.eventsList = [{titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}];
 
 
     /// Public Methods
-    vm.signUp = _signUp;
-    vm.cancel = _cancel;
     vm.goToMain = _goToMain;
 
 

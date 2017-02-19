@@ -12,18 +12,31 @@ function mainController($state, AuthService) {
 
     /// Public Variables
     vm.newUser = {};
+    vm.eventsList = [{titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}];
 
 
     /// Public Methods
     vm.signUp = _signUp;
     vm.cancel = _cancel;
     vm.goToEventos = _goToEventos;
+    vm.goToNewEvent = _goToNewEvent;
 
 
     /// Implementation
-    ///
+
     function _goToEventos() {
-        $state.go('dashboard.evento')
+        $state.go('dashboard.evento.listar');
+    }
+
+    /**
+     * [goToNewEvent description]
+     * @method  goToNewEvent
+     * @author Trigueiro Neto
+     * @version
+     * @return  {[type]}     [description]
+     */
+    function _goToNewEvent() {
+        $state.go('dashboard.evento.cadastrar')
     }
 
     /**

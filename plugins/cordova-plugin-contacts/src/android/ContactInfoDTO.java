@@ -15,27 +15,45 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
- */
+*/
 
-package io.cordova.hellocordova;
+package org.apache.cordova.contacts;
 
-import android.os.Bundle;
-import org.apache.cordova.*;
+import java.util.HashMap;
 
-public class MainActivity extends CordovaActivity
-{
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-        // enable Cordova apps to be started in the background
-        Bundle extras = getIntent().getExtras();
-        if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
-            moveTaskToBack(true);
-        }
+public class ContactInfoDTO {
 
-        // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
-    }
+ String displayName;
+ JSONObject name;
+ JSONArray organizations;
+ JSONArray addresses;
+ JSONArray phones;
+ JSONArray emails;
+ JSONArray ims;
+ JSONArray websites;
+ JSONArray photos;
+ String note;
+ String nickname;
+ String birthday;
+ HashMap<String, Object> desiredFieldsWithVals;
+
+ public ContactInfoDTO() {
+
+  displayName = "";
+  name = new JSONObject();
+  organizations = new JSONArray();
+  addresses = new JSONArray();
+  phones = new JSONArray();
+  emails = new JSONArray();
+  ims = new JSONArray();
+  websites = new JSONArray();
+  photos = new JSONArray();
+  note = "";
+  nickname = "";
+  desiredFieldsWithVals = new HashMap<String, Object>();
+ }
+
 }

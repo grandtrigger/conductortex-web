@@ -72,7 +72,7 @@ gulp.task('wiredep', function() {
 gulp.task('inject', function() {
     gulp.src('./www/index.html')
     .pipe(inject(gulp.src('./www/js/*.js', {read: false}), {relative: true}))
-    .pipe(inject(gulp.src('./www/css/*.css', {read : false}, {relative : true})))
+    // .pipe(inject(gulp.src('./www/css/*.css', {read : false}, {relative : true})))
     .pipe(gulp.dest('./www'));
 });
 

@@ -1,12 +1,11 @@
 <div flex = "80" flex-offset = "10" layout-align = "center center">
-    <!-- Logomarca -->
     <form name = "vm.userLoginForm">
         <!-- Input de Nome Completo -->
         <div layout = "row">
             <md-input-container flex>
                 <label>Nome Completo</label>
 
-                <input type = "text" ng-model="vm.newUser.name">
+                <input type = "text" ng-model="vm.newUser.nomeCompleto">
             </md-input-container>
         </div>
 
@@ -15,7 +14,7 @@
             <md-input-container flex>
                 <label>CPF</label>
 
-                <input type = "tel" ng-model="vm.newUser.cpf">
+                <input type = "tel" ng-model="vm.newUser.cpf" ui-br-cpf-mask>
             </md-input-container>
         </div>
 
@@ -24,7 +23,7 @@
             <md-input-container flex>
                 <label>Apelido</label>
 
-                <input type = "text" ng-model="vm.newUser.nickname">
+                <input type = "text" ng-model="vm.newUser.apelido">
             </md-input-container>
         </div>
 
@@ -42,7 +41,7 @@
             <md-input-container flex>
                 <label>Número do Telefone</label>
 
-                <input type = "tel" ng-model="vm.newUser.phoneNumber">
+                <input type = "tel" ng-model="vm.newUser.telefone">
             </md-input-container>
         </div>
 
@@ -51,18 +50,18 @@
             <md-input-container flex>
                 <label>Senha</label>
 
-                <input type="password" ng-model="vm.newUser.password">
+                <input type="password" ng-model="vm.newUser.senha">
             </md-input-container>
         </div>
 
         <!-- Input de Confirmação de Senha -->
-        <div layout = "row">
+        <!-- <div layout = "row">
             <md-input-container flex>
                 <label>Confirmar senha</label>
 
                 <input type="password" ng-model="vm.newUser.confirmedPassword">
             </md-input-container>
-        </div>
+        </div> -->
 
         <!-- Botões -->
         <div layout = "row">

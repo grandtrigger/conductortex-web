@@ -44,7 +44,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $
                 return $ocLazyLoad.load({
                     name : 'js',
                     files : [
-                        'components/autenticacao/cadastro/cadastro.controller.js'
+                        'components/autenticacao/cadastro/cadastro.controller.js',
+                        'components/autenticacao/cadastro/cadastro.service.js'
                     ]
                 });
             }
@@ -79,9 +80,20 @@ function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $
         }
     })
     .state('dashboard.evento', {
-        url : '/main',
+        abstract : true,
+        url : '/evento',
         views : {
             'content' : {
+                template : '<div ui-view = "evento"></div>',
+                templateUrl : 'components/dashboard/evento/evento.tpl.html',
+                controller : 'eventoController as vm'
+            }
+        }
+    })
+    .state('dashboard.evento.listar', {
+        url : '/listar',
+        views : {
+            'evento' : {
                 templateUrl : 'components/dashboard/evento/evento.tpl.html',
                 controller : 'eventoController as vm'
             }
@@ -92,6 +104,25 @@ function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $
                     name : 'js',
                     files : [
                         'components/dashboard/evento/evento.controller.js'
+                    ]
+                });
+            }
+        }
+    })
+    .state('dashboard.evento.cadastrar', {
+        url : '/cadastrar',
+        views : {
+            'evento' : {
+                templateUrl : 'components/dashboard/evento/novoevento.tpl.html',
+                controller : 'eventoController as vm'
+            }
+        },
+        resolve : {
+            loadPlugin : function($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name : 'js',
+                    files : [
+                        'components/dashboard/evento/cadastrar/evento-cadastrar.controller.js'
                     ]
                 });
             }

@@ -1,0 +1,53 @@
+<div flex layout-padding ng-init = "vm.init()">
+    <div layout = "column">
+        <label>Cadastrar evento</label>
+    </div>
+
+    <md-divider></md-divider>
+
+    <div flex = "80" flex-offset = "10" layout-align = "center center">
+        <form name = "vm.newEventForm">
+            <!-- Input de Descrição -->
+            <div layout = "row">
+                <md-input-container flex>
+                    <label>Descrição</label>
+
+                    <input type = "text" ng-model="vm.newEvent.descricao">
+                </md-input-container>
+            </div>
+
+            <!-- Input de data -->
+            <div layout = "row">
+                <md-input-container flex>
+                    <label>Data</label>
+
+                    <input type = "text" ng-model="vm.newUser.data">
+                </md-input-container>
+            </div>
+
+            <!-- Input de Valor -->
+            <div layout = "row">
+                <md-input-container flex>
+                    <label>Valor</label>
+
+                    <input type = "tel" ng-model="vm.newUser.valor">
+                </md-input-container>
+            </div>
+
+            <md-list class="md-dense" flex>
+                {{vm.availableContacts}}
+                <!-- <md-list-item class = "md-3-line" ng-repeat="contato in vm.availableContacts">
+                    <p>{{contato}}</p>
+                </md-list-item> -->
+            </md-list>
+
+            <!-- Botões -->
+            <div layout = "row">
+                <!-- Botão de Cancelar -->
+                <md-button class="md-warn" ng-click = "vm.cancel()" flex>Cancelar</md-button>
+                <!-- Botão de Cadastrar -->
+                <md-button class="md-primary" ng-click = "vm.signUp()" flex>Cadastrar</md-button>
+            </div>
+        </form>
+    </div>
+</div>

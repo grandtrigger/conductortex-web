@@ -3,10 +3,10 @@ angular
     .controller('cadastroController', cadastroController);
 
 
-cadastroController.$inject = ['$state', 'AuthService'];
+cadastroController.$inject = ['$state', 'CadastroUsuarioService'];
 
 
-function cadastroController($state, AuthService) {
+function cadastroController($state, CadastroUsuarioService) {
     var vm = this;
 
 
@@ -29,7 +29,10 @@ function cadastroController($state, AuthService) {
      * @return  {[type]} [description]
      */
     function _signUp() {
-
+        CadastroUsuarioService.signUp(vm.newUser)
+        .then(function(response) {
+            $state.go('login');
+        });
     }
 
     /**

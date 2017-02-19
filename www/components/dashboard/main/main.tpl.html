@@ -1,3 +1,31 @@
-<div flex md-swipe-left = "vm.goToEventos()">
-    <p>Tela principal</p>
-</div>
+<md-content flex md-swipe-left = "vm.goToEventos()" layout-padding>
+    <!-- Informações Gerais do Usuário -->
+    <div layout = "column">
+        <label>Saldo Total</label>
+        <label style = "color : #9ED230; font-size : 18px;">R$ 1.000,00</label>
+    </div>
+
+    <md-divider></md-divider>
+
+    <!-- Lista de Últimos Eventos -->
+    <div layout = "column">
+        <md-list class="md-dense" flex>
+            <md-list-item class = "md-3-line" ng-repeat="evento in vm.eventsList">
+                <md-icon>
+                    <i class="material-icons">today</i>
+                </md-icon>
+
+                <div class="md-list-item-text" layout="column">
+                    <h3>agua</h3>
+                    <h4>cara</h4>
+                    <p>{{evento.titulo}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+
+    <!-- Botão de Ações -->
+    <md-button class = "md-fab" style = "position : fixed; bottom : 15px; right : 25px; background-color : #770546;" class="md-fling" ng-click = "vm.goToNewEvent()">
+        <md-icon><i class="material-icons">insert_invitation</i></md-icon>
+    </md-button>
+</md-content>
