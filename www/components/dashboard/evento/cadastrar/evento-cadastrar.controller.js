@@ -60,7 +60,7 @@ function eventoController($state, $cordovaContacts, EventoService, $mdDialog) {
         });
     }
 
-    function _openModal() {
+    function _openModal(ev) {
         $mdDialog.show({
             controller: contatoModalController,
             templateUrl: 'components/dashboard/evento/modals/contatos/contato.modal.html',

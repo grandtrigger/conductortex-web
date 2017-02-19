@@ -15,7 +15,10 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-list class="md-dense" flex>
+
                     <md-list-item class = "md-3-line" ng-repeat="contato in contatos">
+                        <md-checkbox ng-model="contato.selected">
+                        </md-checkbox>
                         <p>{{contato}}</p>
                     </md-list-item>
                 </md-list>
@@ -23,15 +26,12 @@
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                More on Wikipedia
-            </md-button>
             <span flex></span>
-            <md-button ng-click="answer('not useful')">
-                Not Useful
+            <md-button ng-click="cancel()">
+                Cancelar
             </md-button>
-            <md-button ng-click="answer('useful')">
-                Useful
+            <md-button ng-click="getSelecionados()">
+                Selecionar
             </md-button>
         </md-dialog-actions>
     </form>

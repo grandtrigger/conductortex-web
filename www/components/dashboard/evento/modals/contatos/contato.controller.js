@@ -14,6 +14,18 @@ function contatoModalController($scope, $mdDialog) {
     };
 
     $scope.getSelecionados = function() {
-        $mdDialog.hide($scope.selecionados);
+        $mdDialog.hide(_filterSelecionados());
     };
+
+    function _filterSelecionados() {
+        var aux = [];
+
+        $scope.contatos.forEach(function(contato) {
+            if(contato.selected) {
+                aux.add(contato);
+            }
+        });
+
+        return aux;
+    }
 }
