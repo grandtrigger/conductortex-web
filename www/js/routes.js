@@ -3,10 +3,12 @@ angular
     .config(routesConfig);
 
 
-routesConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$locationProvider'];
+routesConfig.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$locationProvider'];
 
 
-function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) {
+function routesConfig($httpProvider, $stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) {
+    // $httpProvider.interceptors.push('Interceptor');
+
     $urlRouterProvider.otherwise('login');
 
     $ocLazyLoadProvider.config({});
@@ -73,7 +75,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $
                 return $ocLazyLoad.load({
                     name : 'js',
                     files : [
-                        'components/dashboard/main/main.controller.js'
+                        'components/dashboard/main/main.controller.js',
+                        'components/dashboard/evento/evento.service.js'
                     ]
                 });
             }
@@ -122,7 +125,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $
                 return $ocLazyLoad.load({
                     name : 'js',
                     files : [
-                        'components/dashboard/evento/cadastrar/evento-cadastrar.controller.js'
+                        'components/dashboard/evento/cadastrar/evento-cadastrar.controller.js',
+                        'components/dashboard/evento/evento.service.js',
+                        'components/dashboard/evento/modals/contatos/contato.controller.js'
                     ]
                 });
             }

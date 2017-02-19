@@ -11,7 +11,8 @@ function loginController($state, AuthService) {
 
 
     vm.user = {
-
+        telefone : '83996437372',
+        senha : '1234'
     };
 
 
@@ -28,22 +29,16 @@ function loginController($state, AuthService) {
      * @return  {[type]} [description]
      */
     function _login() {
-        // AuthService.login(vm.user)
-        // .then(function(response) {
-        //     console.log('response');
-        // });
-        $state.go('dashboard.main');
-    }
+        if(!vm.userLoginForm.$valid) {
+            return;
+        }
 
-    /**
-     * [_formValidation description]
-     * @method  _formValidation
-     * @author
-     * @version
-     * @return  {[type]}        [description]
-     */
-    function _formValidation() {
-
+        AuthService.login(vm.user)
+        .then(function(response) {
+            if(response) {
+                $state.go('dashboard.main');
+            }
+        });
     }
 
     /**

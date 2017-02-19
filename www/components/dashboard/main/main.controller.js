@@ -3,16 +3,16 @@ angular
     .controller('mainController', mainController);
 
 
-mainController.$inject = ['$state', 'AuthService'];
+mainController.$inject = ['$state', 'EventoService'];
 
 
-function mainController($state, AuthService) {
+function mainController($state, EventoService) {
     var vm = this;
 
 
     /// Public Variables
     vm.newUser = {};
-    vm.eventsList = [{titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}, {titulo : "Evento X"}];
+    vm.eventsList = [];
 
 
     /// Public Methods
@@ -21,6 +21,10 @@ function mainController($state, AuthService) {
     vm.goToEventos = _goToEventos;
     vm.goToNewEvent = _goToNewEvent;
 
+
+    EventoService.listarEventoaOcorridos().then(function(response){
+        vm.eventsList = response;
+    });
 
     /// Implementation
 

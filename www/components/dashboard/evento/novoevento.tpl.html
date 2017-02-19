@@ -21,7 +21,7 @@
                 <md-input-container flex>
                     <label>Data</label>
 
-                    <input type = "text" ng-model="vm.newUser.data">
+                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Data do Evento"></md-datepicker>
                 </md-input-container>
             </div>
 
@@ -30,16 +30,20 @@
                 <md-input-container flex>
                     <label>Valor</label>
 
-                    <input type = "tel" ng-model="vm.newUser.valor">
+                    <input type = "tel" ng-model="vm.newUser.valor" ui-money-mask>
                 </md-input-container>
             </div>
 
             <md-list class="md-dense" flex>
-                {{vm.availableContacts}}
                 <!-- <md-list-item class = "md-3-line" ng-repeat="contato in vm.availableContacts">
                     <p>{{contato}}</p>
                 </md-list-item> -->
             </md-list>
+
+            <div layout = "row">
+                <!-- Botão de Adicionar Amigos -->
+                <md-button class="md-primary md-raised" ng-click = "vm.openModal()" flex>Adicionar amigos</md-button>
+            </div>
 
             <!-- Botões -->
             <div layout = "row">

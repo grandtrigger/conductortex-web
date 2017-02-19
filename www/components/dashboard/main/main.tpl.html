@@ -9,6 +9,8 @@
 
     <!-- Lista de Últimos Eventos -->
     <div layout = "column">
+        <md-subheader class="md-no-sticky" ng-if = "!vm.eventsList.length">Nenhum evento recente</md-subheader>
+
         <md-list class="md-dense" flex>
             <md-list-item class = "md-3-line" ng-repeat="evento in vm.eventsList">
                 <md-icon>
@@ -16,9 +18,8 @@
                 </md-icon>
 
                 <div class="md-list-item-text" layout="column">
-                    <h3>agua</h3>
-                    <h4>cara</h4>
-                    <p>{{evento.titulo}}</p>
+                    <h3>{{evento.descricao}}</h3>
+                    <h4>{{evento.data | date : 'dd/MM/yyyy'}}</h4>
                 </div>
             </md-list-item>
         </md-list>

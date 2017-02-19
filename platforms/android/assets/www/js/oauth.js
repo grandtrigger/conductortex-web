@@ -1,26 +1,33 @@
 angular
     .module('vaiacontecer')
-    .factory('AuthService', AuthService);
+    .service('AuthService', AuthService);
 
 
-AuthService.$inject = ['$http', 'BASE_REST_API_LOGIN'];
+AuthService.$inject = ['$http', '$q', 'BASE_REST_API_LOGIN'];
 
 
-function AuthService($http, BASE_REST_API_LOGIN) {
-    var service = {
-        login : _login
+function AuthService($http, $q, BASE_REST_API_LOGIN) {
+
+    var token ={
+        token:'',
+        telefone:''
+    };
+
+    this.getToken = function(){
+        return token;
     }
 
-    var _userToken;
+    this.login = function(user) {
+        var defer = $q.defer();
 
-
-    return service;
-
-
-    function _login(user) {
-        return $http.post(BASE_REST_API_LOGIN + '/login', user)
+        $http.post(BASE_REST_API_LOGIN + '/login', user)
         .then(function(response) {
-            console.log(response);
+            token.token = response.data.token;
+            token.telefone = response.data.telefone;
+            defer.resolve(true);
+
         });
+
+        return defer.promise;
     }
 }

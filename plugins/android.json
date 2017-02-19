@@ -15,6 +15,9 @@
         },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "io.permgen.vaiacontecer"
         }
     },
     "dependent_plugins": {

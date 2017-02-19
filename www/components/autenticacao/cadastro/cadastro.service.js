@@ -16,7 +16,7 @@ function CadastroUsuarioService(BASE_REST_API_LOGIN, $http) {
 
 
     function _signUp(newUser) {
-        return $http.post(BASE_REST_API_LOGIN + '/contas', newUser)
+        return $http.post(BASE_REST_API_LOGIN + '/gerenciamento/contas', newUser)
         .then(function(response) {
             return response.data;
         });

@@ -3,10 +3,10 @@ angular
     .controller('eventoController', eventoController);
 
 
-eventoController.$inject = ['$state', '$cordovaContacts', 'AuthService'];
+eventoController.$inject = ['$state', '$cordovaContacts', 'EventoService', '$mdDialog'];
 
 
-function eventoController($state, $cordovaContacts, AuthService) {
+function eventoController($state, $cordovaContacts, EventoService, $mdDialog) {
     var vm = this;
 
 
@@ -17,6 +17,8 @@ function eventoController($state, $cordovaContacts, AuthService) {
 
     /// Public Methods
     vm.init = _init;
+    vm.cancel = _cancel;
+    vm.openModal = _openModal;
 
     /// Implementation
 
@@ -33,6 +35,8 @@ function eventoController($state, $cordovaContacts, AuthService) {
      */
     function _getAllContacts() {
         $cordovaContacts.find({fields : ['phoneNumbers']}).then(function(allContacts) {
+            var tempList = [];
+
             allContacts.forEach(function(contato) {
                 if(contato.phoneNumbers != null) {
                     contato.phoneNumbers.forEach(function(numero) {
@@ -40,21 +44,46 @@ function eventoController($state, $cordovaContacts, AuthService) {
                         if(aux.length > 9) {
                             aux = aux.substring(aux.length - 9);
                         }
-                        vm.availableContacts.push(aux);
+
+                        tempList.push(aux);
                     });
                 }
             });
+
+            if(tempList.length) {
+                EventoService.listarAmigos(tempList)
+                .then(function(response) {
+                    vm.availableContacts = response;
+                    console.log(vm.availableContacts);
+                });
+            }
+        });
+    }
+
+    function _openModal() {
+        $mdDialog.show({
+            controller: contatoModalController,
+            templateUrl: 'components/dashboard/evento/modals/contatos/contato.modal.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose : true,
+            locals : {
+                contatos : vm.availableContacts
+            }
+        })
+        .then(function(contatos) {
+            vm.newEvent.participantes = contatos;
         });
     }
 
     /**
-     * [_formValidation description]
-     * @method  _formValidation
+     * [_cancel description]
+     * @method  _cancel
      * @author Trigueiro Neto
      * @version
      * @return  {[type]}        [description]
      */
-    function _formValidation() {
-
+    function _cancel() {
+        $state.go('dashboard.evento.listar');
     }
 }

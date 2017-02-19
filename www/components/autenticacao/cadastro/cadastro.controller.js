@@ -28,12 +28,20 @@ function cadastroController($state, CadastroUsuarioService) {
      * @version
      * @return  {[type]} [description]
      */
-    function _signUp() {
-        CadastroUsuarioService.signUp(vm.newUser)
-        .then(function(response) {
-            $state.go('login');
-        });
-    }
+     function _signUp() {
+        if(!vm.userSignUpForm.$valid) {
+            return;
+        }
+
+        vm.newUser.telefone = vm.newUser.seguranca.telefone;
+
+         CadastroUsuarioService.signUp(vm.newUser)
+         .then(function(response) {
+             $state.go('login');
+         });
+
+        // $state.go('login');
+     }
 
     /**
      * [_cancel description]
@@ -44,9 +52,5 @@ function cadastroController($state, CadastroUsuarioService) {
      */
     function _cancel() {
         $state.go('login');
-    }
-
-    function _formValidation() {
-
     }
 }

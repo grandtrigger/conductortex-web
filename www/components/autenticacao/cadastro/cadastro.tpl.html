@@ -1,5 +1,5 @@
 <div flex = "80" flex-offset = "10" layout-align = "center center">
-    <form name = "vm.userLoginForm">
+    <form name = "vm.userSignUpForm">
         <!-- Input de Nome Completo -->
         <div layout = "row">
             <md-input-container flex>
@@ -23,7 +23,7 @@
             <md-input-container flex>
                 <label>Apelido</label>
 
-                <input type = "text" ng-model="vm.newUser.apelido">
+                <input type = "text" ng-model="vm.newUser.apelido" required>
             </md-input-container>
         </div>
 
@@ -32,7 +32,7 @@
             <md-input-container flex>
                 <label>Email</label>
 
-                <input type = "email" ng-model="vm.newUser.email">
+                <input type = "email" ng-model="vm.newUser.email" required>
             </md-input-container>
         </div>
 
@@ -41,7 +41,7 @@
             <md-input-container flex>
                 <label>Número do Telefone</label>
 
-                <input type = "tel" ng-model="vm.newUser.telefone" ui-br-phone-number>
+                <input type = "tel" ng-model="vm.newUser.seguranca.telefone" ui-br-phone-number required>
             </md-input-container>
         </div>
 
@@ -50,7 +50,7 @@
             <md-input-container flex>
                 <label>Senha</label>
 
-                <input type="password" ng-model="vm.newUser.senha">
+                <input type="password" ng-model="vm.newUser.seguranca.senha" required>
             </md-input-container>
         </div>
 

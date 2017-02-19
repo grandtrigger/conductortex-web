@@ -3,17 +3,19 @@ angular
     .factory('Interceptor', Interceptor);
 
 
-Interceptor.$inject = ['$rootScope', '$http', '$q'];
+Interceptor.$inject = ['$http', '$q'];
 
 
-function Interceptor($rootScope, $http, $q) {
-    var interceptor = {
+function Interceptor($http, $q) {
+    return {
+    	'response' : function(response) {
 
+        	return response;
+    	},
+        'responseError' : function(rejection) {
+            console.log(rejection);
+
+            return $q.reject(rejection);
+        }
     }
-
-
-    return interceptor;
-
-
-    
 }
