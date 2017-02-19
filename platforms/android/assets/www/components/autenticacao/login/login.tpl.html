@@ -1,0 +1,35 @@
+<div flex = "80" flex-offset = "10" layout-align = "center center" layout-padding>
+    <div layout = "row" layout-align = "center center">
+        <img src = "images/logo.png">
+    </div>
+    <!-- Logomarca -->
+    <form name = "vm.userLoginForm">
+        <!-- Input de Número de Telefone -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Número do Telefone</label>
+
+                <input type = "tel" ng-model="vm.user.telefone" ui-br-phone-number>
+            </md-input-container>
+        </div>
+
+        <!-- Input de Senha -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Senha</label>
+
+                <input type="password" ng-model="vm.user.senha">
+            </md-input-container>
+        </div>
+
+        <!-- Botão de Login -->
+        <div layout = "row">
+            <md-button class="md-raised md-primary" ng-click = "vm.login()" flex>Login</md-button>
+        </div>
+
+        <!-- Botão de Cadastro -->
+        <div layout = "row" layout-align = "end center">
+            <label>Ainda não possui uma conta? <md-button class = "md-primary" ng-href="" ng-click = "vm.signUp()">Criar conta</md-button></label>
+        </div>
+    </form>
+</div>

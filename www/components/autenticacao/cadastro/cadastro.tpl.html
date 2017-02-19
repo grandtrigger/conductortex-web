@@ -1,0 +1,75 @@
+<div flex = "80" flex-offset = "10" layout-align = "center center">
+    <!-- Logomarca -->
+    <form name = "vm.userLoginForm">
+        <!-- Input de Nome Completo -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Nome Completo</label>
+
+                <input type = "text" ng-model="vm.newUser.name">
+            </md-input-container>
+        </div>
+
+        <!-- Input de CPF -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>CPF</label>
+
+                <input type = "tel" ng-model="vm.newUser.cpf">
+            </md-input-container>
+        </div>
+
+        <!-- Input de Apelido -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Apelido</label>
+
+                <input type = "text" ng-model="vm.newUser.nickname">
+            </md-input-container>
+        </div>
+
+        <!-- Input de email -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Email</label>
+
+                <input type = "email" ng-model="vm.newUser.email">
+            </md-input-container>
+        </div>
+
+        <!-- Input de Número de Telefone -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Número do Telefone</label>
+
+                <input type = "tel" ng-model="vm.newUser.phoneNumber">
+            </md-input-container>
+        </div>
+
+        <!-- Input de Senha -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Senha</label>
+
+                <input type="password" ng-model="vm.newUser.password">
+            </md-input-container>
+        </div>
+
+        <!-- Input de Confirmação de Senha -->
+        <div layout = "row">
+            <md-input-container flex>
+                <label>Confirmar senha</label>
+
+                <input type="password" ng-model="vm.newUser.confirmedPassword">
+            </md-input-container>
+        </div>
+
+        <!-- Botões -->
+        <div layout = "row">
+            <!-- Botão de Cancelar -->
+            <md-button class="md-warn" ng-click = "vm.cancel()" flex>Cancelar</md-button>
+            <!-- Botão de Cadastrar -->
+            <md-button class="md-primary" ng-click = "vm.signUp()" flex>Cadastrar</md-button>
+        </div>
+    </form>
+</div>

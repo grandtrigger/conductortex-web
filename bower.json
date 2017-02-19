@@ -1,0 +1,30 @@
+{
+  "name": "hybrid",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Trigueiro Neto"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.0"
+  },
+  "devDependencies": {
+    "angular": "1.6.0",
+    "angular-ui-router": "0.3.1",
+    "oclazyload": "^1.0.9",
+    "angular-messages": "^1.6.2",
+    "angular-sanitize": "^1.6.2",
+    "angular-material": "^1.1.3",
+    "angular-input-masks": "^2.5.0"
+  }
+}
